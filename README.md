@@ -9,9 +9,4 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 * Villca, Luis Alberto
 
 ## Trabajo Práctico 1
-* [Trabajo Práctico 1 - Procesos](https://colab.research.google.com/drive/1i39ejDMSXjiCcEGGbGonEyJtZafqngR_#scrollTo=sdBI_DszkxjZ)
-* 
-* 
-
-## Trabajo Práctico 2
-* 
+* [Procesos](https://colab.research.google.com/drive/1i39ejDMSXjiCcEGGbGonEyJtZafqngR_#scrollTo=sdBI_DszkxjZ)
