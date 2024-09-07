@@ -12,7 +12,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 * Volker, Mariano Leonardo
 
 ## Integrantes
-* Antonioli, Ivan Oscar
+* Antonioli, Iván Oscar
 * Di Nicco, Luis Demetrio
 * Sandoval Vasquez, Juan Leandro
 * Tigani, Martin Sebastian
