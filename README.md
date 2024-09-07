@@ -1,5 +1,8 @@
-# Programación Concurrente
-Repositorio donde se encuentran los ejercicios correspondientes a los trabajos prácticos de la materia (Segundo Cuatrimestre 2024).
+# Programación Concurrente - UNLaM
+Repositorio donde se encuentran los ejercicios correspondientes a los trabajos prácticos de la materia.
+
+* Cuatrimestre: Segundo Cuatrimestre 2024
+* Grupo: M4
 
 ## Docentes
 * Adagio, Matias Ezequiel
