@@ -25,8 +25,6 @@ public class Proceso {
             return;
         }
 
-        //System.out.println("Proceso " + args[0] + ": " + ManagementFactory.getRuntimeMXBean().getPid());
-
         if (args[0].equals("B")) {
             Process procesoC = NuevoProcesoHijo("C");
             Process procesoD = NuevoProcesoHijo("D");
@@ -39,7 +37,6 @@ public class Proceso {
             }
 
         } else if (args[0].equals("D")) {
-            //System.out.println("Proceso " + args[0] + ": " + ManagementFactory.getRuntimeMXBean().getPid());
             Process procesoF = NuevoProcesoHijo("F");
             Process procesoG = NuevoProcesoHijo("G");
 
@@ -51,7 +48,6 @@ public class Proceso {
             }
 
         } else if (args[0].equals("C")) {
-            //System.out.println("Proceso " + args[0] + ": " + ManagementFactory.getRuntimeMXBean().getPid());
             Process procesoE = NuevoProcesoHijo("E");
 
             int error = procesoE.waitFor();
@@ -60,7 +56,6 @@ public class Proceso {
                 System.out.println("Error al ejecutar");
             }
         } else if (args[0].equals("E")) {
-            //System.out.println("Proceso " + args[0] + ": " + ManagementFactory.getRuntimeMXBean().getPid());
             Process procesoH = NuevoProcesoHijo("H");
             Process procesoI = NuevoProcesoHijo("I");
 
@@ -72,14 +67,13 @@ public class Proceso {
             }
 
         } else {
-            espera(5000); // Espera para simular un proceso que está ejecutándose
+            espera(5000);
         }
     }
 
     private static Process NuevoProcesoHijo(String nombre) {
         Process proceso = null;
         try {
-            // Cambia "Proceso.java" a "Proceso"
             ProcessBuilder pb = new ProcessBuilder("java", "Proceso.java", nombre);
             
             pb.redirectErrorStream(true);
