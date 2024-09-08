@@ -6,19 +6,26 @@
 #define ERROR_CREACION_PROCESO 2
 #define TIEMPO_DE_ESPERA_PARA_CREACION 2
 
-pid_t crearProceso(char nombre){
+pid_t crearProceso(char nombre);
+void crearJerarquiaDeProcesos();
+
+pid_t crearProceso(char nombre)
+{
     pid_t pid = fork();
-    if (pid < 0){
+    if (pid < 0)
+    {
         return ERROR_CREACION_PROCESO;
     }
-    if (pid == 0){
+    if (pid == 0)
+    {
         printf("Proceso %c: %d\n",nombre,getpid());
     }
     sleep(TIEMPO_DE_ESPERA_PARA_CREACION);
     return pid;
 }
 
-void crearJerarquiaDeProcesos(){
+void crearJerarquiaDeProcesos()
+{
     pid_t pidB = crearProceso('B');
 
      // Estoy en A
@@ -29,7 +36,8 @@ void crearJerarquiaDeProcesos(){
         exit(0)   ;                   // Exit de A
      // Estoy en B
     }
-    else{
+    else
+    {
         pid_t pidC = crearProceso('C');
 
          // Estoy en B
@@ -38,7 +46,8 @@ void crearJerarquiaDeProcesos(){
             pid_t pidD = crearProceso('D');
 
              // Estoy en D
-            if (pidD == 0){
+            if (pidD == 0)
+            {
                 pid_t pidF = crearProceso('F');
 
                  // Estoy en D
@@ -107,7 +116,8 @@ void crearJerarquiaDeProcesos(){
     }
 }
 
-void main(){
+void main()
+{
     crearJerarquiaDeProcesos();
     sleep(20);
 }
