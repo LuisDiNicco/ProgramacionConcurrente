@@ -10,7 +10,7 @@
 using namespace std;
 
 /*Compilacion y Ejecucion:
-gcc -o contadorDeCaracteres ./contadorDeCaracteres.c
+g++ -o contadorDeCaracteres ./contadorDeCaracteres.cpp
 ./contadorDeCaracteres rutaArchivo cantidadDeHilos*/
 
 int total = 0;
@@ -26,10 +26,7 @@ void eliminarLineasVacias(const string& archivo_original, vector<string>& vector
     string linea;
     while (getline(archivo_entrada, linea)) 
     {
-        if (!linea.empty())
-        {
-            vector_lineas.push_back(linea);
-        }
+        if (!linea.empty()) vector_lineas.push_back(linea);
     }
     archivo_entrada.close();
 }
@@ -55,18 +52,20 @@ void procesarArchivo(vector<string>& vector_lineas, int cantidad_de_hilos)
 
     vector<thread> threads;
 
-    for (int i = 0; i < cantidad_de_hilos;i++) {
+    for (int i = 0; i < cantidad_de_hilos;i++)
+    {
         int indiceInferior = i*cantidad_lineas_por_archivo;
         int indiceSuperior = ((i+1)*cantidad_lineas_por_archivo) - 1;
         
         if(i == cantidad_de_hilos-1 && (vector_lineas.size() % cantidad_de_hilos != 0))
         {
-            indiceSuperior+=(vector_lineas.size() % cantidad_de_hilos);
+            indiceSuperior += (vector_lineas.size() % cantidad_de_hilos);
         }
         threads.push_back(thread(contarCaracteresEnRango,ref(vector_lineas),indiceInferior,indiceSuperior));
     }
 
-   for (auto& thread : threads) {
+    for (auto& thread : threads)
+    {
         thread.join();
     }
 }
@@ -84,11 +83,11 @@ int main(int argc, char* argv[])
     int cantidad_de_hilos = stoi(argv[2]);
 
     vector<string> vector_lineas;
-    eliminarLineasVacias(nombre_archivo,vector_lineas);
+    eliminarLineasVacias(nombre_archivo, vector_lineas);
 
     if(vector_lineas.size() < cantidad_de_hilos)
     {
-        cout << "La cantidad de hilos supera la cantida de lineas no vacias del archivo" << endl;
+        cout << "La cantidad de hilos supera la cantidad de lineas no vacias del archivo" << endl;
         return EXIT_FAILURE;
     } 
 
