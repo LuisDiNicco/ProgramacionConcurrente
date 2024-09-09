@@ -1,6 +1,5 @@
-package Resolucion;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.*;
 
 public class Main {
