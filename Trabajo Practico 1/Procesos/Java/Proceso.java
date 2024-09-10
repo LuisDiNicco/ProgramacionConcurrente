@@ -1,92 +1,105 @@
-package Procesos;
-
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
-public class Proceso {
-    
-    String nombre;
+public class Proceso
+{
+  String nombre;
+  public static final int TIEMPO_ESPERA = 10000;
 
-    public Proceso(String nombre) {
-        this.nombre = nombre;
+  public Proceso(String nombre)
+  {
+    this.nombre = nombre;
+  }
+
+  public static void espera(int tiempo)
+  {
+    try
+    {
+      Thread.sleep(tiempo);
     }
-
-    public static void espera(int tiempo) {
-        try {
-            Thread.sleep(tiempo);
-        } catch (InterruptedException ie) {
-            return;
-        }
+    catch (InterruptedException ie)
+    {
+      // No hacer nada, solo retornar.
+      return;
     }
+  }
 
-    public static void main(String[] args) throws InterruptedException {
-        if (args.length == 0) {
-            System.err.println("No se proporcionó ningún argumento.");
-            return;
-        }
-
-        if (args[0].equals("B")) {
-            Process procesoC = NuevoProcesoHijo("C");
-            Process procesoD = NuevoProcesoHijo("D");
-
-            int error = procesoC.waitFor();
-            int error1 = procesoD.waitFor();
-
-            if (error != 0 || error1 != 0) {
-                System.out.println("Error al ejecutar");
-            }
-
-        } else if (args[0].equals("D")) {
-            Process procesoF = NuevoProcesoHijo("F");
-            Process procesoG = NuevoProcesoHijo("G");
-
-            int error = procesoF.waitFor();
-            int error1 = procesoG.waitFor();
-
-            if (error != 0 || error1 != 0) {
-                System.out.println("Error al ejecutar");
-            }
-
-        } else if (args[0].equals("C")) {
-            Process procesoE = NuevoProcesoHijo("E");
-
-            int error = procesoE.waitFor();
-
-            if (error != 0) {
-                System.out.println("Error al ejecutar");
-            }
-        } else if (args[0].equals("E")) {
-            Process procesoH = NuevoProcesoHijo("H");
-            Process procesoI = NuevoProcesoHijo("I");
-
-            int error = procesoH.waitFor();
-            int error1 = procesoI.waitFor();
-
-            if (error != 0 || error1 != 0) {
-                System.out.println("Error al ejecutar");
-            }
-
-        } else {
-            espera(5000);
-        }
+  public static void esperarProcesoHijo(Process proceso)
+  {
+    try
+    {
+      int error = proceso.waitFor();
+      if (error != 0)
+      {
+        System.out.println("Error al ejecutar");
+      }
     }
-
-    private static Process NuevoProcesoHijo(String nombre) {
-        Process proceso = null;
-        try {
-            ProcessBuilder pb = new ProcessBuilder("java", "Proceso.java", nombre);
-            
-            pb.redirectErrorStream(true);
-            pb.inheritIO();
-
-            proceso = pb.start();
-            System.out.println("Proceso " + nombre + " : " + proceso.pid());
-
-        } catch (IOException e) {
-            System.err.println("Error al iniciar el proceso hijo " + nombre + ": " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        return proceso;
+    catch (InterruptedException ie)
+    {
+      // No hacer nada, solo retornar.
     }
+  }
+
+  public static void procesarRamaE(String[] args)
+  {
+    Process procesoH = crearProcesoHijo("H");
+    Process procesoI = crearProcesoHijo("I");
+    esperarProcesoHijo(procesoH);
+    esperarProcesoHijo(procesoI);
+  }
+
+  public static void procesarRamaD(String[] args)
+  {
+    Process procesoF = crearProcesoHijo("F");
+    Process procesoG = crearProcesoHijo("G");
+    esperarProcesoHijo(procesoF);
+    esperarProcesoHijo(procesoG);
+  }
+
+  public static void main(String[] args) throws InterruptedException
+  {
+    if (args[0].equals("B"))
+    {
+      Process procesoC = crearProcesoHijo("C");
+      Process procesoD = crearProcesoHijo("D");
+      esperarProcesoHijo(procesoC);
+      esperarProcesoHijo(procesoD);
+    }
+    else if (args[0].equals("D"))
+    {
+      procesarRamaD(args);
+    }
+    else if (args[0].equals("C"))
+    {
+      Process procesoE = crearProcesoHijo("E");
+      esperarProcesoHijo(procesoE);
+    }
+    else if (args[0].equals("E"))
+    {
+      procesarRamaE(args);
+    }
+    else
+    {
+      espera(TIEMPO_ESPERA);
+    }
+  }
+
+  private static Process crearProcesoHijo(String nombre)
+  {
+    Process proceso = null;
+    try
+    {
+      ProcessBuilder pb = new ProcessBuilder("java", "Proceso.java", nombre);
+      pb.redirectErrorStream(true);
+      pb.inheritIO();
+      proceso = pb.start();
+      System.out.println("Proceso " + nombre + " : " + proceso.pid());
+    }
+    catch (IOException e)
+    {
+      System.err.println("Error al iniciar el proceso hijo " + nombre + ": " + e.getMessage());
+      e.printStackTrace();
+    }
+    return proceso;
+  }
 }
