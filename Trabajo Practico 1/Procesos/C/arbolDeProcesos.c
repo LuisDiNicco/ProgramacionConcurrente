@@ -8,7 +8,6 @@
 #define TIEMPO_ESPERA_FINAL 10
 
 pid_t crearProceso(char nombre);
-<<<<<<< HEAD
 void manejarProcesoA();
 void manejarProcesoB();
 void manejarProcesoC();
@@ -44,28 +43,6 @@ void manejarProcesoA()
     manejarProcesoB();  // Estoy en B
   }
 }
-=======
-void crearJerarquiaDeProcesos();
-
-pid_t crearProceso(char nombre)
-{
-    pid_t pid = fork();
-    if (pid < 0)
-    {
-        return ERROR_CREACION_PROCESO;
-    }
-    if (pid == 0)
-    {
-        printf("Proceso %c: %d\n",nombre,getpid());
-    }
-    sleep(TIEMPO_DE_ESPERA_PARA_CREACION);
-    return pid;
-}
-
-void crearJerarquiaDeProcesos()
-{
-    pid_t pidB = crearProceso('B');
->>>>>>> 256366eb0cce9987e935f7b194fb2baf8203122d
 
 void manejarProcesoB()
 {
@@ -104,90 +81,11 @@ void manejarProcesoD()
     }
     else
     {
-<<<<<<< HEAD
       exit(0);       // Exit de F
-=======
-        pid_t pidC = crearProceso('C');
-
-         // Estoy en B
-        if (pidC != 0)
-        {
-            pid_t pidD = crearProceso('D');
-
-             // Estoy en D
-            if (pidD == 0)
-            {
-                pid_t pidF = crearProceso('F');
-
-                 // Estoy en D
-                if (pidF != 0)
-                {
-                    pid_t pidG = crearProceso('G');
-
-                     // Estoy en D
-                    if (pidG != 0)
-                    {
-                        wait(NULL);        // Wait de D
-                        exit(0);      // Exit de D
-                    }
-                    else
-                    {
-                        exit(0);      // Exit de G
-                    }
-                }
-                else
-                {
-                    exit(0);          // Exit de F
-                }
-            }
-            wait(NULL);                   // Wait de B
-            wait(NULL);
-            exit(0);                // Exit de B
-         // Estoy en C
-        }
-        else
-        {
-            pid_t pidE = crearProceso('E');
-
-             // Estoy en E
-            if (pidE == 0)
-            {
-                pid_t pidH = crearProceso('H');
-
-                 // Estoy en E
-                if (pidH != 0)
-                {
-                    pid_t pidI = crearProceso('I');
-
-                     // Estoy en E
-                    if (pidI != 0)
-                    {
-                        wait(NULL);         // Wait de E
-                        wait(NULL);
-                        exit(0);      // Exit de E
-                    }
-                    else
-                    {
-                        exit(0);      // Exit de I
-                    }
-                }
-                else
-                {
-                    exit(0);          // Exit de H
-                }
-            }
-            else
-            {
-                wait(NULL);                  // Wait de C
-                exit(0);
-            }
-        }
->>>>>>> 256366eb0cce9987e935f7b194fb2baf8203122d
     }
   }
 }
 
-<<<<<<< HEAD
 void manejarProcesoC()
 {
   pid_t pid_e = crearProceso('E');
@@ -218,12 +116,6 @@ void manejarProcesoC()
     wait(NULL);      // Wait de C
     exit(0);
   }
-=======
-void main()
-{
-    crearJerarquiaDeProcesos();
-    sleep(20);
->>>>>>> 256366eb0cce9987e935f7b194fb2baf8203122d
 }
 
 int main()
