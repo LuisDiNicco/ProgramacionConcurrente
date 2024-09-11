@@ -3,43 +3,39 @@ import java.util.concurrent.Callable;
 
 public class Hilo extends Thread {
     
-    String nombre;
+    int numero;
+    int indiceInferior;
+    int indiceSuperior;
+    List<String> listaLineas;
+    static int total=0;
 
-    public Hilo(String nombre)
+    public Hilo(int numero,List<String> listaLineas,int indiceInferior,int indiceSuperior)
     {
-        this.nombre=nombre;
+        this.numero=numero;
+        this.indiceInferior=indiceInferior;
+        this.indiceSuperior=indiceSuperior;
+        this.listaLineas=listaLineas;
+    }
+
+    public static int getTotal()
+    {
+        return Hilo.total;
     }
 
     public void run()
     {
-
+        this.ContadorCaracteresEnRango(listaLineas, this.indiceInferior, this.indiceSuperior);
     }
 
-    public static class ContadorCaracteresEnRango implements Callable<Integer>
+    private void ContadorCaracteresEnRango(List<String> lineas, int inicio, int fin)
     {
-        private final List<String> lineas;
-        private final int inicio;
-        private final int fin;
-
-        public ContadorCaracteresEnRango(List<String> lineas, int inicio, int fin)
+        int totalCaracteres=0;
+        for (int i = inicio; i <= fin; i++)
         {
-            this.lineas = lineas;
-            this.inicio = inicio;
-            this.fin = fin;
+            totalCaracteres += lineas.get(i).length();
         }
-
-        @Override
-        public Integer call() throws Exception
-        {
-            Thread.sleep(10000); // Simula el delay de 10 segundos
-            int totalCaracteres = 0;
-            for (int i = inicio; i <= fin; i++)
-            {
-                totalCaracteres += lineas.get(i).length();
-            }
-            System.out.println("Resultado Parcial: " + totalCaracteres);
-            return totalCaracteres;
-        }
+        System.out.println("Resultado Parcial: " + totalCaracteres);
+        Hilo.total += totalCaracteres;
     }
     
 }
