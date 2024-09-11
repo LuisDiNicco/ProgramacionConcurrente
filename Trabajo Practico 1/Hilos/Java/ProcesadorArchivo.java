@@ -34,33 +34,4 @@ public class ProcesadorArchivo {
         sc.close();
     }
 
-    public static void procesarArchivo(List<String> lineas, int cantidadDeHilos) throws InterruptedException, ExecutionException
-    {
-        //int cantidadLineasPorArchivo = lineas.size() / cantidadDeHilos;
-        //ExecutorService executor = Executors.newFixedThreadPool(cantidadDeHilos);
-        //List<Future<Integer>> resultados = new ArrayList<>();
-        List<Hilo> hilos = new ArrayList<Hilo>();
-        
-        for (int i = 0; i < cantidadDeHilos; i++)
-        {
-            //int indiceInferior = i * cantidadLineasPorArchivo;
-            //int indiceSuperior = ((i + 1) * cantidadLineasPorArchivo) - 1;
-
-            if (i == cantidadDeHilos - 1 && (lineas.size() % cantidadDeHilos != 0)) {
-                //indiceSuperior += (lineas.size() % cantidadDeHilos);
-            }
-            
-            hilos.add(new Hilo("Hilo_" + i));
-
-            //resultados.add(executor.submit(new ContadorCaracteresEnRango(lineas, indiceInferior, indiceSuperior)));
-        }
-
-        //executor.shutdown();
-
-        //for (Future<Integer> resultado : resultados)
-        //{
-        //    total += resultado.get();
-        //}
-    }
-
 }
