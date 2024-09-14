@@ -52,8 +52,6 @@ void contarCaracteresEnRango(
   cout
     << "Tiempo de ejecucion Parcial: "
     << (double)duracion.count() / 1000000 << " ms" << endl;
-
-  return;
 }
 
 void procesarArchivo(
