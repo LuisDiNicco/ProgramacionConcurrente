@@ -39,7 +39,7 @@ void contarCaracteresEnRango(
     int &resultado_parcial)
 {
   // sleep(10);
-  auto start = chrono::high_resolution_clock::now();
+  auto start = high_resolution_clock::now();
   if (inicio < 0) inicio = 0;
   if (fin >= vector_lineas.size()) fin = vector_lineas.size() - 1;
   for (int i = inicio; i <= fin; ++i)
@@ -47,8 +47,8 @@ void contarCaracteresEnRango(
     resultado_parcial += vector_lineas[i].size();
   }
   cout << "Resultado Parcial: " + to_string(resultado_parcial) << endl;
-  auto fin_2 = chrono::high_resolution_clock::now();
-  auto duracion = chrono::duration_cast<chrono::nanoseconds>(fin_2 - start);
+  auto fin2 = high_resolution_clock::now();
+  auto duracion = duration_cast<nanoseconds>(fin2 - start);
   cout
     << "Tiempo de ejecucion Parcial: "
     << (double)duracion.count() / 1000000 << " ms" << endl;
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
-  auto start = chrono::high_resolution_clock::now();
+  auto start = high_resolution_clock::now();
   procesarArchivo(cref(vector_lineas), cantidad_de_hilos, ref(resultados_por_hilo));
 
   for (int resultado_parcial : resultados_por_hilo)
@@ -117,8 +117,8 @@ int main(int argc, char *argv[])
     total += resultado_parcial;
   }
 
-  auto fin = chrono::high_resolution_clock::now();
-  auto duracion = chrono::duration_cast<chrono::nanoseconds>(fin - start);
+  auto fin = high_resolution_clock::now();
+  auto duracion = duration_cast<nanoseconds>(fin - start);
 
   cout << "Resultado Total: " + to_string(total) << endl;
   cout << "Tiempo de ejecucion: " << (double)duracion.count() / 1000000 << " ms" << endl;
