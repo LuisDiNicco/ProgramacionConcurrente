@@ -1,10 +1,11 @@
 #include <iostream>
-#include <thread>
 #include <mutex>
-#include <vector>
+#include <semaphore>
 #include <sstream>
 #include <string>
-#include <semaphore>
+#include <thread>
+#include <unistd.h>
+#include <vector>
 
 using namespace std;
 using namespace chrono;
@@ -15,11 +16,11 @@ g++ -o accesoBaño ./accesoBaño.cpp
 g++ -std=c++20 -o accesoBanio ./accesoBanio.cpp
 ./accesoBaño */
 
-// Declarar dos mutex globales
-
-mutex accesoRegionCritica;
 mutex imprimirPantalla;
-counting_semaphore<3> turno(3);
+
+// Declarar dos mutex globales
+mutex accesoRegionCritica;
+counting_semaphore<3> turno(3); // Aparece como error pero se debe indicar la version de compilador
 
 enum Baño
 {
