@@ -1,12 +1,10 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 
-public class ProcesadorArchivo {
-
+public class ProcesadorArchivo
+{
     public static final int total = 0;
 
     public static void eliminarLineasVacias(String archivoOriginal, List<String> listaLineas)
@@ -20,13 +18,14 @@ public class ProcesadorArchivo {
             String linea;
             while (sc.hasNext())
             {
-                linea=sc.nextLine();
+                linea = sc.nextLine();
                 if (!linea.isEmpty())
                 {
                     listaLineas.add(linea);
                 }
             }
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             System.err.println("Error al abrir el archivo de entrada.");
             e.printStackTrace();

@@ -1,9 +1,8 @@
 import java.util.List;
 import java.util.ArrayList;
-import java.util.concurrent.*;
 
-public class Main {
-
+public class Main
+{
     public static void main(String[] args)
     {
         if (args.length != 2)
@@ -25,33 +24,39 @@ public class Main {
             System.exit(1);
         }
 
-        int cantidadLineasPorThread=listaLineas.size()/cantidadDeHilos;
+        int cantidadLineasPorThread = listaLineas.size() / cantidadDeHilos;
         Hilo[] hilos = new Hilo[cantidadDeHilos];
 
-        for (int i = 0; i < cantidadDeHilos; i++) {
-            int indiceInferior = i*cantidadLineasPorThread;
-            int indiceSuperior = ((i+1)*cantidadLineasPorThread) - 1;
-            
-            if(i == cantidadDeHilos-1 && (listaLineas.size() % cantidadDeHilos != 0))
+        for (int i = 0; i < cantidadDeHilos; i++)
+        {
+            int indiceInferior = i * cantidadLineasPorThread;
+            int indiceSuperior = ((i + 1) * cantidadLineasPorThread) - 1;
+
+            if (i == cantidadDeHilos - 1 && (listaLineas.size() % cantidadDeHilos != 0))
             {
                 indiceSuperior += (listaLineas.size() % cantidadDeHilos);
             }
-            hilos[i]= new Hilo(i,listaLineas,indiceInferior,indiceSuperior);
+            hilos[i] = new Hilo(i, listaLineas, indiceInferior, indiceSuperior);
             hilos[i].start();
         }
 
-        for (int i = 0; i < cantidadDeHilos; i++) {
-            try {
+        for (int i = 0; i < cantidadDeHilos; i++)
+        {
+            try
+            {
                 hilos[i].join();
-            } catch (InterruptedException e) {
+            } catch (InterruptedException e)
+            {
                 e.printStackTrace();
             }
         }
-        System.out.println("Total de Caracteres: " +  Hilo.getTotal());
+        
+        System.out.println("Total de Caracteres: " + Hilo.getTotal());
         long end = System.nanoTime();
         double duracionMs = (end - start) / 1_000_000.0;
 
-        //System.out.println("Resultado Total: " + total);
+        // System.out.println("Resultado Total: " + total);
         System.out.println("Tiempo de ejecucion: " + duracionMs + " ms");
     }
+
 }

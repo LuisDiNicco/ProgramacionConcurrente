@@ -1,20 +1,20 @@
 import java.util.List;
-import java.util.concurrent.Callable;
 
-public class Hilo extends Thread {
-    
-    int numero;
-    int indiceInferior;
-    int indiceSuperior;
-    List<String> listaLineas;
-    static int total=0;
+public class Hilo extends Thread
+{
+    private int numero;
+    private int indiceInferior;
+    private int indiceSuperior;
+    private List<String> listaLineas;
 
-    public Hilo(int numero,List<String> listaLineas,int indiceInferior,int indiceSuperior)
+    static int total = 0;
+
+    public Hilo(int numero, List<String> listaLineas, int indiceInferior, int indiceSuperior)
     {
-        this.numero=numero;
-        this.indiceInferior=indiceInferior;
-        this.indiceSuperior=indiceSuperior;
-        this.listaLineas=listaLineas;
+        this.numero = numero;
+        this.indiceInferior = indiceInferior;
+        this.indiceSuperior = indiceSuperior;
+        this.listaLineas = listaLineas;
     }
 
     public static int getTotal()
@@ -29,7 +29,7 @@ public class Hilo extends Thread {
 
     private void ContadorCaracteresEnRango(List<String> lineas, int inicio, int fin)
     {
-        int totalCaracteres=0;
+        int totalCaracteres = 0;
         for (int i = inicio; i <= fin; i++)
         {
             totalCaracteres += lineas.get(i).length();
@@ -37,5 +37,5 @@ public class Hilo extends Thread {
         System.out.println("Resultado Parcial: " + totalCaracteres);
         Hilo.total += totalCaracteres;
     }
-    
+
 }
