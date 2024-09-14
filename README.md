@@ -12,11 +12,13 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 * Volker, Mariano Leonardo
 
 ## Integrantes
-* Antonioli, Iván Oscar
-* Di Nicco, Luis Demetrio
-* Sandoval Vasquez, Juan Leandro
-* Tigani, Martin Sebastian
-* Villca, Luis Alberto
+| Nombre | DNI |
+|--|--|
+| Antonioli, Iván Oscar | 43.630.151 |
+| Di Nicco, Luis Demetrio | 43.664.669 |
+| Sandoval Vasquez, Juan Leandro | 41.548.235 |
+| Tigani, Martin Sebastian | 32.788.835 |
+| Villca, Luis Alberto | 35.277.730 |
 
 ## Links a Google Colab
 ### Trabajo Práctico 1
