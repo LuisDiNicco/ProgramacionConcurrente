@@ -8,7 +8,7 @@ ERROR_PARAMETROS = -1
 ERROR_ARCHIVO_INVALIDO = -2
 ERROR_HILOS = -3
 
-total = 0
+listaSubtotal = []
 
 def validarParametros():
     parser = argparse.ArgumentParser(description="Contador de caracteres dado un archivo usando múltiples hilos.")
@@ -35,12 +35,10 @@ def eliminarLineasVacias(archivo, vectorLineas):
                 #vectorLineas.append(linea)
 
 def contarCaracteresEnRango(vectorLineas, indiceSuperior, indiceInferior):
-    time.sleep(10);
-    global total
     subtotal = 0
     for i in range(indiceSuperior, indiceInferior + 1):
         subtotal += len(vectorLineas[i])
-    total += subtotal
+    listaSubtotal.append(subtotal)
     print(f"Resultado Parcial: {subtotal}")
 
 def procesarArchivo(vectorLineas, cantidadDeHilos):
@@ -58,9 +56,6 @@ def procesarArchivo(vectorLineas, cantidadDeHilos):
     
     for thread in threads:
         thread.join()
-    
-    print(f"Resultado Total: {total}")
-
 
 def main():
     pid = os.getpid()
@@ -87,6 +82,8 @@ def main():
     duracion_milisegundos = (fin - inicio) * 1000 
     
     print(f"Tiempo de ejecución: {duracion_milisegundos:.2f} ms")
+
+    print(f"Resultado Total: {sum(listaSubtotal)}")
 
 if __name__ == "__main__":
     main()
