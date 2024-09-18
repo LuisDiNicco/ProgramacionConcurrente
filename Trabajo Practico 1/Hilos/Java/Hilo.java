@@ -1,36 +1,32 @@
 import java.util.List;
 import java.util.concurrent.Callable;
 
-public class Hilo extends Thread {
-
+public class Hilo extends Thread
+{
   int numero;
   int indiceInferior;
   int indiceSuperior;
+  int[] vectorSumaParcial;
   List<String> listaLineas;
-  int[] suma;
 
-  public Hilo(int numero,List<String> listaLineas,int indiceInferior,int indiceSuperior,int[] suma)
+  public Hilo(int numero,List<String> listaLineas,int indiceInferior,int indiceSuperior,int[] vectorSumaParcial)
   {
     this.numero=numero;
     this.indiceInferior=indiceInferior;
     this.indiceSuperior=indiceSuperior;
     this.listaLineas=listaLineas;
-    this.suma=suma;
   }
 
   public void run()
   {
-    this.ContadorCaracteresEnRango(listaLineas, this.indiceInferior, this.indiceSuperior);
+    this.contadorCaracteresEnRango(listaLineas, this.indiceInferior, this.indiceSuperior,vectorSumaParcial);
   }
 
-  private void ContadorCaracteresEnRango(List<String> lineas, int inicio, int fin)
+  private void contadorCaracteresEnRango(List<String> lineas, int inicio, int fin,int[] vectorSumaParcial)
   {
-    int totalCaracteres=0;
     for (int i = inicio; i <= fin; i++)
     {
-      totalCaracteres += lineas.get(i).length();
+      Main.setValorVector(numero,lineas.get(i).length());
     }
-    System.out.println("Resultado Parcial: " + totalCaracteres);
-    suma[this.numero] += totalCaracteres;
   }
 }

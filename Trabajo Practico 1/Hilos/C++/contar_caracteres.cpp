@@ -11,12 +11,12 @@ using namespace std;
 using namespace chrono;
 
 // Compilacion y Ejecucion:
-// g++ -o contadorDeCaracteres ./contadorDeCaracteres.cpp
-//./contadorDeCaracteres rutaArchivo cantidadDeHilos
+// g++ -o contador_de_caracteres ./contar_caracteres.cpp
+// ./contar_caracteres ruta_archivo cantidad_de_hilos
 
-void eliminarLineasVacias(
-    const string &archivo_original,
-    vector<string> &vector_lineas)
+void EliminarLineasVacias(
+    const string& archivo_original,
+    vector<string>& vector_lineas)
 {
   ifstream archivo_entrada(archivo_original);
   if (!archivo_entrada.is_open())
@@ -27,38 +27,38 @@ void eliminarLineasVacias(
   string linea;
   while (getline(archivo_entrada, linea))
   {
-    if (!linea.empty()) vector_lineas.push_back(linea);
+    if (!linea.empty())
+    {
+      vector_lineas.push_back(linea);
+    }
   }
   archivo_entrada.close();
 }
 
-void contarCaracteresEnRango(
-    const vector<string> &vector_lineas,
+void ContarCaracteresEnRango(
+    const vector<string>& vector_lineas,
     int inicio,
     int fin,
-    int &resultado_parcial)
+    int& resultado_parcial)
 {
-  // sleep(10);
-  auto start = high_resolution_clock::now();
-  if (inicio < 0) inicio = 0;
-  if (fin >= vector_lineas.size()) fin = vector_lineas.size() - 1;
+  if (inicio < 0)
+  {
+    inicio = 0;
+  }
+  if (fin >= vector_lineas.size())
+  {
+    fin = vector_lineas.size() - 1;
+  }
   for (int i = inicio; i <= fin; ++i)
   {
     resultado_parcial += vector_lineas[i].size();
   }
-  cout << "Resultado Parcial: " + to_string(resultado_parcial) << endl;
-  auto fin2 = high_resolution_clock::now();
-  auto duracion = duration_cast<nanoseconds>(fin2 - start);
-  cout
-    << "Tiempo de ejecucion Parcial: "
-    << (double)duracion.count() / 1000000 << " ms" << endl;
 }
 
-void procesarArchivo(
-  const vector<string> &vector_lineas,
-  int cantidad_de_hilos,
-  vector<int> &resultados_por_hilo
-)
+void ProcesarArchivo(
+    const vector<string>& vector_lineas,
+    int cantidad_de_hilos,
+    vector<int>& resultados_por_hilo)
 {
   vector<thread> threads;
   int cantidad_lineas_por_hilo = vector_lineas.size() / cantidad_de_hilos;
@@ -68,24 +68,22 @@ void procesarArchivo(
     int indice_inferior = i * cantidad_lineas_por_hilo;
     int indice_superior = ((i + 1) * cantidad_lineas_por_hilo) - 1;
 
-    if (
-      i == cantidad_de_hilos - 1 && (vector_lineas.size() % cantidad_de_hilos != 0)
-    )
+    if (i == cantidad_de_hilos - 1 && (vector_lineas.size() % cantidad_de_hilos != 0))
     {
       indice_superior += (vector_lineas.size() % cantidad_de_hilos);
     }
     threads.push_back(
-      thread(contarCaracteresEnRango, cref(vector_lineas), indice_inferior, indice_superior, ref(resultados_por_hilo[i]))
-    );
+        thread(ContarCaracteresEnRango, cref(vector_lineas), indice_inferior,
+               indice_superior, ref(resultados_por_hilo[i])));
   }
 
-  for (auto &thread : threads)
+  for (auto& thread : threads)
   {
     thread.join();
   }
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
   cout << "PID: " << getpid() << endl;
   if (argc != 3)
@@ -99,7 +97,7 @@ int main(int argc, char *argv[])
   int total = 0;
   vector<string> vector_lineas;
   vector<int> resultados_por_hilo(cantidad_de_hilos, 0);
-  eliminarLineasVacias(nombre_archivo, vector_lineas);
+  EliminarLineasVacias(nombre_archivo, vector_lineas);
 
   if (vector_lineas.size() < cantidad_de_hilos)
   {
@@ -108,7 +106,7 @@ int main(int argc, char *argv[])
   }
 
   auto start = high_resolution_clock::now();
-  procesarArchivo(cref(vector_lineas), cantidad_de_hilos, ref(resultados_por_hilo));
+  ProcesarArchivo(cref(vector_lineas), cantidad_de_hilos, ref(resultados_por_hilo));
 
   for (int resultado_parcial : resultados_por_hilo)
   {
@@ -120,7 +118,6 @@ int main(int argc, char *argv[])
 
   cout << "Resultado Total: " + to_string(total) << endl;
   cout << "Tiempo de ejecucion: " << (double)duracion.count() / 1000000 << " ms" << endl;
-  // sleep(5);
 
   return EXIT_SUCCESS;
 }

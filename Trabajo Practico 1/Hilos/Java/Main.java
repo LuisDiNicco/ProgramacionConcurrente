@@ -2,7 +2,14 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
-public class Main {
+public class Main
+{
+  static int[] vectorSumaParcial;
+
+  public static void setValorVector(int i,int valor)
+  {
+    vectorSumaParcial[i]+=valor;
+  }
 
   public static void main(String[] args)
   {
@@ -21,13 +28,13 @@ public class Main {
 
     if (listaLineas.size() < cantidadDeHilos)
     {
-      System.out.println("La cantidad de hilos supera la cantidad de lineas no vacias del archivo.");
+      System.out.println("La cantidad de hilos supera la cantidad de lineas no vacias del archivo");
       System.exit(1);
     }
 
     int cantidadLineasPorThread=listaLineas.size()/cantidadDeHilos;
     Hilo[] hilos = new Hilo[cantidadDeHilos];
-    int [] suma= new int[cantidadDeHilos];
+    Main.vectorSumaParcial= new int[cantidadDeHilos];
 
     for (int i = 0; i < cantidadDeHilos; i++)
     {
@@ -38,7 +45,7 @@ public class Main {
       {
         indiceSuperior += (listaLineas.size() % cantidadDeHilos);
       }
-      hilos[i]= new Hilo(i,listaLineas,indiceInferior,indiceSuperior,suma);
+      hilos[i]= new Hilo(i,listaLineas,indiceInferior,indiceSuperior,vectorSumaParcial);
       hilos[i].start();
     }
 
@@ -53,18 +60,15 @@ public class Main {
         e.printStackTrace();
       }
     }
-
     int total=0;
-    for (int i = 0; i < cantidadDeHilos; i++)
+    for (int i = 0; i < vectorSumaParcial.length; i++)
     {
-      total+=suma[i];
+      total+=vectorSumaParcial[i];
     }
-
     System.out.println("Total de Caracteres: " +  total);
     long end = System.nanoTime();
     double duracionMs = (end - start) / 1_000_000.0;
 
-    //System.out.println("Resultado Total: " + total);
     System.out.println("Tiempo de ejecucion: " + duracionMs + " ms");
-    }
+  }
 }
