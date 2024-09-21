@@ -22,7 +22,10 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 
 ## Links a Google Colab
 ### Trabajo Práctico 1
-* Parte 1: [Procesos](https://colab.research.google.com/drive/1HI2BX2UqpVGj9xpQXm2FQORTsDcy4-78?usp=drive_copy)
+* Parte 1: Procesos
+  * [C](https://colab.research.google.com/drive/1HI2BX2UqpVGj9xpQXm2FQORTsDcy4-78?usp=drive_copy)
+  * [Java](https://colab.research.google.com/drive/1133X3S7irJ1Od0Diw2Frh1o-o_lFK1yQ?usp=sharing)
+  * [Python](https://colab.research.google.com/drive/15BYDuVqsOOuq5t5jVRt4znZpDoHhjLmb?usp=sharing)
 * Parte 2: Hilos
   * [C++](https://colab.research.google.com/drive/1NOf-a3MtG6HjaSbdcpi-LiRUN_wtAMBe?usp=sharing)
   * [Java](https://colab.research.google.com/drive/160u8T9y358jp8hcwyKtcP_mnDWh9Jw9U?usp=sharing)
