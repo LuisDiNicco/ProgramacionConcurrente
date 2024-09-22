@@ -87,6 +87,7 @@ void manejarProcesoD()
       if (pid_g != 0)
       {
         wait(NULL);  // Wait de D
+        wait(NULL);
         exit(0);     // Exit de D
       }
       else
