@@ -6,7 +6,7 @@ public class Main {
 
     static Semaphore accesoProductos = new Semaphore(1); 
     static int salida=1;
-
+ 
     static class Cliente extends Thread {
         private int nombre;
         private int cantidadAComprar;
