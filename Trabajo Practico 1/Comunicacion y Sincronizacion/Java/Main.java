@@ -1,12 +1,4 @@
-import java.util.concurrent.Semaphore;
-
 public class Main {
-
-  public static int productos = 0;
-
-  static Semaphore accesoProductos = new Semaphore(1);
-  static boolean reposicionActiva = true;
-
   public static void main(String[] args) throws InterruptedException {
 
     if (args.length < 1 || Integer.parseInt(args[0]) < 0) {
@@ -22,24 +14,17 @@ public class Main {
     repo1.start();
     repo2.start();
 
-    Cliente[] clientes = obtenerClientes(numClientes);
+    Gondola gondola = new Gondola();
+
+    Cliente[] clientes = gondola.obtenerClientes(numClientes);
 
     for (int i = 0; i < numClientes; i++) {
       clientes[i].join();
     }
 
-    reposicionActiva = false;
+    Gondola.reposicionActiva = false;
 
     repo1.join();
     repo2.join();
-  }
-
-  public static Cliente[] obtenerClientes(int cantidadClientes) {
-    Cliente[] clientes = new Cliente[cantidadClientes];
-    for (int i = 0; i < cantidadClientes; i++) {
-      clientes[i] = new Cliente(i, Constantes.CANTIDAD_A_COMPRAR);
-      clientes[i].start();
-    }
-    return clientes;
   }
 }

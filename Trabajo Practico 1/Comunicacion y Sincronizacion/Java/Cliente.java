@@ -11,18 +11,18 @@ public class Cliente extends Thread {
   public void run() {
     try {
       while (true) {
-        Main.accesoProductos.acquire();
-        if (Main.productos >= cantidadAComprar) {
-          Main.productos -= cantidadAComprar;
+        Gondola.accesoProductos.acquire();
+        if (Gondola.productos >= cantidadAComprar) {
+          Gondola.productos -= cantidadAComprar;
           System.out.println("-----------------------------------------------------------");
           System.out.println(
               "Cliente: " + nombre + " esta comprando " + cantidadAComprar + " productos.");
-          System.out.println("Productos en gondola despues de la compra: " + Main.productos);
+          System.out.println("Productos en gondola despues de la compra: " + Gondola.productos);
           System.out.println("-----------------------------------------------------------");
-          Main.accesoProductos.release();
+          Gondola.accesoProductos.release();
           break;
         } else {
-          Main.accesoProductos.release();
+          Gondola.accesoProductos.release();
           sleep(1000);
         }
       }
