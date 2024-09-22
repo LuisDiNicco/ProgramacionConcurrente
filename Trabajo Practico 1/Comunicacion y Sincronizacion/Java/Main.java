@@ -1,6 +1,6 @@
 import java.util.concurrent.Semaphore;
 
-public class Gondola {
+public class Main {
 
   public static int productos = 0;
 
