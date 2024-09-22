@@ -1,117 +1,45 @@
 import java.util.concurrent.Semaphore;
 
 public class Main {
-    static int productos = 0;
-    static final int CAPACIDAD_MAXIMA = 10;
 
-    static Semaphore accesoProductos = new Semaphore(1); 
-    static int salida=1;
- 
-    static class Cliente extends Thread {
-        private int nombre;
-        private int cantidadAComprar;
+  public static int productos = 0;
 
-        public Cliente(int nombre, int cantidadAComprar) {
-            this.nombre = nombre;
-            this.cantidadAComprar = cantidadAComprar;
-        }
+  static Semaphore accesoProductos = new Semaphore(1);
+  static boolean reposicionActiva = true;
 
-        public void run() {
-            try {
-                while(true){
-                accesoProductos.acquire();
-                    if(productos >= cantidadAComprar){
-                        productos -= cantidadAComprar;
-                        System.out.println("-----------------------------------------------------------");
-                        System.out.println("Cliente: " + nombre + " esta comprando " + cantidadAComprar + " productos.");
-                        System.out.println("Productos en gondola despues de la compra: " + productos);
-                        System.out.println("-----------------------------------------------------------");
-                        accesoProductos.release();
-                        break;
-                    }else{
-                        accesoProductos.release();
-                        this.sleep(1000);
-                    }
-                }
+  public static void main(String[] args) throws InterruptedException {
 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    if (args.length < 1 || Integer.parseInt(args[0]) < 0) {
+      System.out.println("La cantidad de clientes debe ser positiva");
+      return;
     }
 
-    static class Repositores extends Thread {
-        private int nombre;
-        private int cantidadAReponer;
-        private static int turno=1;
+    int numClientes = Integer.parseInt(args[0]);
 
-        public Repositores(int nombre, int cantidadAReponer) {
-            this.nombre = nombre;
-            this.cantidadAReponer = cantidadAReponer;
-        }
+    Repositor repo1 = new Repositor(1, Constantes.CANTIDAD_MAXIMA_PRODUCTOS);
+    Repositor repo2 = new Repositor(2, Constantes.CANTIDAD_MAXIMA_PRODUCTOS);
 
-        public void cambiarTurno()
-        {
-            if(Repositores.turno==1){
-                turno=2;
-            }else{
-                turno=1;
-            }
-        }
+    repo1.start();
+    repo2.start();
 
-        public void run() {
-            try {
-                while(salida==1){
-                    accesoProductos.acquire();
-                    if(productos < CAPACIDAD_MAXIMA && turno == nombre){
-                        int cantidadReponer = Math.min(CAPACIDAD_MAXIMA - productos, cantidadAReponer);
-                        productos += cantidadReponer;
-                        System.out.println("-----------------------------------------------------------");
-                        System.out.println("Repositor: " + nombre + " esta reponiendo " + cantidadReponer + " productos.");
-                        System.out.println("Productos en gondola despues de la reposición: " + productos);
-                        System.out.println("-----------------------------------------------------------");
-                        cambiarTurno();
-                        accesoProductos.release();
-                    }else{
-                        accesoProductos.release();
-                        this.sleep(1000);
-                    }
-                }
+    Cliente[] clientes = obtenerClientes(numClientes);
 
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    for (int i = 0; i < numClientes; i++) {
+      clientes[i].join();
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        if (args.length < 1 || Integer.parseInt(args[0]) < 0) {
-            System.out.println("La cantidad de Clientes debe ser positiva");
-            return;
-        }
+    reposicionActiva = false;
 
-        int numClientes = Integer.parseInt(args[0]);
+    repo1.join();
+    repo2.join();
+  }
 
-        Repositores repo1 = new Repositores(1, 10);
-        Repositores repo2 = new Repositores(2, 10);
-
-        repo1.start();
-        repo2.start();
-
-        Cliente[] clientes = new Cliente[numClientes];
-        for (int i = 0; i < numClientes; i++) {
-            clientes[i] = new Cliente(i, 5);
-            clientes[i].start();
-        }
-
-        for (int i = 0; i < numClientes; i++) {
-            clientes[i].join();
-        }
-
-        salida=0;
-
-        repo1.join();
-        repo2.join();
+  public static Cliente[] obtenerClientes(int cantidadClientes) {
+    Cliente[] clientes = new Cliente[cantidadClientes];
+    for (int i = 0; i < cantidadClientes; i++) {
+      clientes[i] = new Cliente(i, Constantes.CANTIDAD_A_COMPRAR);
+      clientes[i].start();
     }
+    return clientes;
+  }
 }

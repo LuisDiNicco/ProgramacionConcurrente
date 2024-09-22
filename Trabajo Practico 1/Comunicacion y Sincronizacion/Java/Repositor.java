@@ -19,21 +19,21 @@ public class Repositor extends Thread {
 
   public void run() {
     try {
-      while (Gondola.reposicionActiva) {
-        Gondola.accesoProductos.acquire();
-        if (Gondola.productos < Constantes.CANTIDAD_MAXIMA_PRODUCTOS && turno == numero) {
+      while (Main.reposicionActiva) {
+        Main.accesoProductos.acquire();
+        if (Main.productos < Constantes.CANTIDAD_MAXIMA_PRODUCTOS && turno == numero) {
           int cantidadReponer =
-              Math.min(Constantes.CANTIDAD_MAXIMA_PRODUCTOS - Gondola.productos, cantidadAReponer);
-          Gondola.productos += cantidadReponer;
+              Math.min(Constantes.CANTIDAD_MAXIMA_PRODUCTOS - Main.productos, cantidadAReponer);
+          Main.productos += cantidadReponer;
           System.out.println("-----------------------------------------------------------");
           System.out.println(
               "Repositor: " + numero + " esta reponiendo " + cantidadReponer + " productos.");
-          System.out.println("Productos en gondola despues de la reposición: " + Gondola.productos);
+          System.out.println("Productos en gondola despues de la reposición: " + Main.productos);
           System.out.println("-----------------------------------------------------------");
           cambiarTurno();
-          Gondola.accesoProductos.release();
+          Main.accesoProductos.release();
         } else {
-          Gondola.accesoProductos.release();
+          Main.accesoProductos.release();
           sleep(1000);
         }
       }
