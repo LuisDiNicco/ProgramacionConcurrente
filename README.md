@@ -37,7 +37,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 
 ## Pasos para subir cambios al repositorio de la materia
 
-1. Clonarse el repositorio: `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
+1. Si es que no tenes bajado localmente el respositorio, clonarselo con: `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
 
 2. Posicionarse en el repositorio: `cd 2024-PROGC-Q2-M4/`
 
