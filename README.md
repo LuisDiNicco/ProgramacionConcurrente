@@ -37,8 +37,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 
 ## Pasos para subir cambios al repositorio de la materia
 
-1. Clonarse el repositorio:  
-   `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
+1. Clonarse el repositorio: `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
 
 2. Posicionarse en el repositorio:  
    `cd 2024-PROGC-Q2-M4/`
@@ -53,7 +52,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
    `git commit -m "MensajeRelacionadoAlCommit"`
 
 6. Pusheamos la rama:  
-   `git push --set-upstream origin nombreDeLaRama`
+   `git push` o `git push --set-upstream origin nombreDeLaRama`
 
 ### Notas:
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar:  
