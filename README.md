@@ -36,13 +36,28 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
   * [Python](https://colab.research.google.com/drive/1kNpa11lwbl7ZA-eBlq7JP4FJlv1Xd-yQ?usp=sharing)
 
 ## Pasos para subir cambios al repositorio de la materia
-  1 - Clonarse el repositorio `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
-  2 - Posicionarse en el repositorio con `cd 2024-PROGC-Q2-M4/` 
-  3 - Crear una nueva rama para subir los cambios `git checkout -b nombreDeLaRama`
-  4 - Luego de subir los archivos o las modificaciones `git add .`
-  5 - Commiteamos los archivos `git commit -m "MensajeRelacionadoAlCommit"`
-  6 - Pusheamos la rama `git push --set-upstream origin nombreDeLaRama`
+
+1. Clonarse el repositorio:  
+   `git clone https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4.git`
+
+2. Posicionarse en el repositorio:  
+   `cd 2024-PROGC-Q2-M4/`
+
+3. Crear una nueva rama para subir los cambios:  
+   `git checkout -b nombreDeLaRama`
+
+4. Luego de subir los archivos o las modificaciones:  
+   `git add .`
+
+5. Commiteamos los archivos:  
+   `git commit -m "MensajeRelacionadoAlCommit"`
+
+6. Pusheamos la rama:  
+   `git push --set-upstream origin nombreDeLaRama`
+
+### Notas:
+- Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar:  
+  `git status`
   
-*Notas*:
-  * Ante cualquier consulta de commits, cambios efectuados o saber la rama actual se puede saber con `git status`
-  * Antes de hacer un commit es recomendable bajarse los cambios que pudieron haberse producido con `git pull`
+- Antes de hacer un commit es recomendable bajar los cambios que pudieron haberse producido con:  
+  `git pull`
