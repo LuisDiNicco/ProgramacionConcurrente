@@ -53,3 +53,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
   
 - Antes de hacer un commit es recomendable bajar los cambios que pudieron haberse producido con: `git pull`
+
+- Si queres ver todas las ramas que se encuentran: `git branch -a`
+  
+- Te podes posicionar en una rama con: `git checkout nombreDeLaRama`
