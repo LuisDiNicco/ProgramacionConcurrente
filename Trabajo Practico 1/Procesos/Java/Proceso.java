@@ -18,7 +18,6 @@ public class Proceso
     }
     catch (InterruptedException ie)
     {
-      // No hacer nada, solo retornar.
       return;
     }
   }
@@ -35,7 +34,7 @@ public class Proceso
     }
     catch (InterruptedException ie)
     {
-      // No hacer nada, solo retornar.
+      ie.printStackTrace();
     }
   }
 

@@ -33,44 +33,44 @@ pid_t crearProceso(char nombre)
 void manejarProcesoA()
 {
   pid_t pid_b = crearProceso('B');
-  if (pid_b != 0)  // Estoy en A
+  if (pid_b != 0)
   {
     printf("Proceso A: %d\n", getpid());
-    wait(NULL);  // Wait de A
-    exit(0);     // Exit de A
+    wait(NULL);
+    exit(0);
   }
   else
   {
-    manejarProcesoB();  // Estoy en B
+    manejarProcesoB();
   }
 }
 
 void manejarProcesoB()
 {
   pid_t pid_c = crearProceso('C');
-  if (pid_c != 0)  // Estoy en B
+  if (pid_c != 0)
   {
-    manejarProcesoD();  // Estoy en D
-    wait(NULL);         // Wait de B
+    manejarProcesoD();
     wait(NULL);
-    exit(0);            // Exit de B
+    wait(NULL);
+    exit(0);
   }
   else
   {
-    manejarProcesoC();  // Estoy en C
+    manejarProcesoC();
   }
 }
 
 void manejarProcesoC()
 {
   pid_t pid_e = crearProceso('E');
-  if (pid_e == 0)  // Estoy en E
+  if (pid_e == 0)
   {
     manejarProcesoE();
   }
   else
   {
-    wait(NULL);      // Wait de C
+    wait(NULL);
     exit(0);
   }
 }
@@ -78,7 +78,7 @@ void manejarProcesoC()
 void manejarProcesoD()
 {
   pid_t pid_d = crearProceso('D');
-  if (pid_d == 0)  // Estoy en D
+  if (pid_d == 0)
   {
     pid_t pid_f = crearProceso('F');
     if (pid_f != 0)
@@ -86,18 +86,18 @@ void manejarProcesoD()
       pid_t pid_g = crearProceso('G');
       if (pid_g != 0)
       {
-        wait(NULL);  // Wait de D
         wait(NULL);
-        exit(0);     // Exit de D
+        wait(NULL);
+        exit(0);
       }
       else
       {
-        manejarProcesoHoja(); // Exit de G   
+        manejarProcesoHoja(); 
       }
     }
     else
     {
-        manejarProcesoHoja(); // Exit de F
+        manejarProcesoHoja();
     }
   }
 }
@@ -110,18 +110,18 @@ void manejarProcesoE()
     pid_t pid_i = crearProceso('I');
     if (pid_i != 0)
     {
-      wait(NULL);  // Wait de E
       wait(NULL);
-      exit(0);     // Exit de E
+      wait(NULL);
+      exit(0);
     }
     else
     {
-      manejarProcesoHoja(); // Exit de I
+      manejarProcesoHoja();
     }
   }
   else
   {
-    manejarProcesoHoja(); // Exit de H      
+    manejarProcesoHoja();    
   }
 }
 

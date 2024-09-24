@@ -26,7 +26,7 @@ public class Main
     }
     catch (IOException e)
     {
-      // Manejo de excepciones vacío.
+      e.printStackTrace();
     }
     catch (InterruptedException e)
     {
