@@ -31,7 +31,7 @@ def eliminar_lineas_vacias(archivo, vector_lineas):
   with open(archivo, 'r') as f:
     for linea in f:
       if linea:
-        vector_lineas.append(linea.strip()) # Elimina saltos de linea
+        vector_lineas.append(linea.strip())
 
 def contar_caracteres_en_rango(vectorLineas, indiceSuperior, indiceInferior):
   subtotal = 0

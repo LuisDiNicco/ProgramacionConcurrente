@@ -1,18 +1,24 @@
+#include <atomic>
 #include <chrono>
-#include <iostream>
+#include <condition_variable>
 #include <fstream>
-#include <string>
+#include <iostream>
+#include <mutex>
 #include <sstream>
+#include <string>
 #include <thread>
 #include <unistd.h>
 #include <vector>
 
-using namespace std;
 using namespace chrono;
+using namespace std;
 
-void EliminarLineasVacias(
-    const string& archivo_original,
-    vector<string>& vector_lineas)
+int total = 0;
+atomic<int> hilos_activos(0);
+mutex mtx;
+condition_variable cv;
+
+void EliminarLineasVacias(const string& archivo_original, vector<string>& vector_lineas)
 {
   ifstream archivo_entrada(archivo_original);
   if (!archivo_entrada.is_open())
@@ -49,6 +55,11 @@ void ContarCaracteresEnRango(
   {
     resultado_parcial += vector_lineas[i].size();
   }
+
+  hilos_activos--;
+
+  cv.notify_one();
+  return;
 }
 
 void ProcesarArchivo(
@@ -56,27 +67,28 @@ void ProcesarArchivo(
     int cantidad_de_hilos,
     vector<int>& resultados_por_hilo)
 {
-  vector<thread> threads;
-  int cantidad_lineas_por_hilo = vector_lineas.size() / cantidad_de_hilos;
+  int cantidad_lineas_por_archivo = vector_lineas.size() / cantidad_de_hilos;
 
   for (int i = 0; i < cantidad_de_hilos; i++)
   {
-    int indice_inferior = i * cantidad_lineas_por_hilo;
-    int indice_superior = ((i + 1) * cantidad_lineas_por_hilo) - 1;
+    int indice_inferior = i * cantidad_lineas_por_archivo;
+    int indice_superior = ((i + 1) * cantidad_lineas_por_archivo) - 1;
 
     if (i == cantidad_de_hilos - 1 && (vector_lineas.size() % cantidad_de_hilos != 0))
     {
       indice_superior += (vector_lineas.size() % cantidad_de_hilos);
     }
-    threads.push_back(
-        thread(ContarCaracteresEnRango, cref(vector_lineas), indice_inferior,
-               indice_superior, ref(resultados_por_hilo[i])));
+
+    hilos_activos++;
+
+    thread(ContarCaracteresEnRango, cref(vector_lineas), indice_inferior,
+           indice_superior, ref(resultados_por_hilo[i])).detach();
   }
 
-  for (auto& thread : threads)
-  {
-    thread.join();
-  }
+  unique_lock<mutex> lock(mtx);
+  cv.wait(lock, [] { return hilos_activos == 0; });
+
+  cout << "Todos los hilos han terminado.\n";
 }
 
 int main(int argc, char* argv[])
@@ -90,6 +102,7 @@ int main(int argc, char* argv[])
 
   string nombre_archivo = argv[1];
   int cantidad_de_hilos = stoi(argv[2]);
+
   int total = 0;
   vector<string> vector_lineas;
   vector<int> resultados_por_hilo(cantidad_de_hilos, 0);
@@ -102,6 +115,7 @@ int main(int argc, char* argv[])
   }
 
   auto start = high_resolution_clock::now();
+
   ProcesarArchivo(cref(vector_lineas), cantidad_de_hilos, ref(resultados_por_hilo));
 
   for (int resultado_parcial : resultados_por_hilo)
