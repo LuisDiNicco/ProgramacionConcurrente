@@ -1,7 +1,10 @@
-public class Main {
-  public static void main(String[] args) throws InterruptedException {
+public class Main
+{
+  public static void main(String[] args) throws InterruptedException
+  {
 
-    if (args.length < 1 || Integer.parseInt(args[0]) < 0) {
+    if (args.length < 1 || Integer.parseInt(args[0]) < 0)
+    {
       System.out.println("La cantidad de clientes debe ser positiva");
       return;
     }
@@ -18,7 +21,8 @@ public class Main {
 
     Cliente[] clientes = gondola.obtenerClientes(numClientes);
 
-    for (int i = 0; i < numClientes; i++) {
+    for (int i = 0; i < numClientes; i++)
+    {
       clientes[i].join();
     }
 

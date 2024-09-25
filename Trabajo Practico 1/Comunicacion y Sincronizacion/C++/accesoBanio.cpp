@@ -11,16 +11,9 @@ using namespace std;
 using namespace chrono;
 using namespace this_thread;
 
-/*Compilacion y Ejecucion:
-g++ -o accesoBaño ./accesoBaño.cpp
-g++ -std=c++20 -o accesoBanio ./accesoBanio.cpp
-./accesoBaño */
-
 mutex imprimirPantalla;
-
-// Declarar dos mutex globales
 mutex accesoRegionCritica;
-counting_semaphore<3> turno(3); // Aparece como error pero se debe indicar la version de compilador
+counting_semaphore<3> turno(3);
 
 enum Baño
 {
@@ -36,22 +29,22 @@ int situacionBaño = VACIO;
 void mujeres(int numero)
 {
     string nombre = "Mujer " + to_string(numero);
-    
-    turno.acquire();                  // pedis semaforo
-    if (situacionBaño == HAY_HOMBRES) // si hay hombres
+
+    turno.acquire();
+    if (situacionBaño == HAY_HOMBRES)
     {
-        turno.release();                     // liberas semaforo
-        while (situacionBaño == HAY_HOMBRES) // mientras haya hombres
+        turno.release();
+        while (situacionBaño == HAY_HOMBRES)
         {
             imprimirPantalla.lock();
             cout << nombre + " esperando" << endl;
             cout << "-----------------------------------------" << endl;
             imprimirPantalla.unlock();
-            sleep_for(seconds(1)); // se queda esperando
+            sleep_for(seconds(1));
         }
-        turno.acquire(); // pedis semaforo para entrar
+        turno.acquire();
     }
-    accesoRegionCritica.lock(); // entras region critica
+    accesoRegionCritica.lock();
     cantidadMujeres++;
     if (cantidadMujeres == 1)
     {
@@ -62,18 +55,18 @@ void mujeres(int numero)
     cout << "\t- CantidadHombres: " + to_string(cantidadHombres) + "\n\t- CantidadMujeres: " + to_string(cantidadMujeres) << endl;
     cout << "-----------------------------------------" << endl;
     imprimirPantalla.unlock();
-    accesoRegionCritica.unlock(); // salis region critica
+    accesoRegionCritica.unlock();
 
-    sleep_for(seconds(2)); // tiempo de espera en el baño
+    sleep_for(seconds(2));
 
-    accesoRegionCritica.lock(); // entras region critica
+    accesoRegionCritica.lock();
     cantidadMujeres--;
     if (cantidadMujeres == 0)
     {
         situacionBaño = VACIO;
     }
-    accesoRegionCritica.unlock(); // salis region critica
-    turno.release();              // sale del baño
+    accesoRegionCritica.unlock();
+    turno.release();
     imprimirPantalla.lock();
     cout << nombre + " sale del baño." << endl;
     cout << "-----------------------------------------" << endl;
@@ -84,21 +77,21 @@ void mujeres(int numero)
 void hombres(int numero)
 {
     string nombre = "Hombre " + to_string(numero);
-    
-    turno.acquire();                  // pedis semaforo
-    if (situacionBaño == HAY_MUJERES) // hay mujeres
+
+    turno.acquire();
+    if (situacionBaño == HAY_MUJERES)
     {
-        turno.release();                     // liberas semaforo
-        while (situacionBaño == HAY_MUJERES) // mientras haya mujeres
+        turno.release();
+        while (situacionBaño == HAY_MUJERES)
         {
             imprimirPantalla.lock();
             cout << nombre + " esperando" << endl;
             cout << "-----------------------------------------" << endl;
             imprimirPantalla.unlock();
         }
-        turno.acquire(); // pedis semaforo para entrar
+        turno.acquire();
     }
-    accesoRegionCritica.lock(); // entras region critica
+    accesoRegionCritica.lock();
     cantidadHombres++;
     if (cantidadHombres == 1)
     {
@@ -109,18 +102,18 @@ void hombres(int numero)
     cout << "\t- CantidadHombres: " + to_string(cantidadHombres) + "\n\t- CantidadMujeres: " + to_string(cantidadMujeres)<< endl;
     cout << "-----------------------------------------" << endl;
     imprimirPantalla.unlock();
-    accesoRegionCritica.unlock(); // salis region critica
+    accesoRegionCritica.unlock();
 
-    sleep_for(seconds(2)); // tiempo de espera en el baño
+    sleep_for(seconds(2));
 
-    accesoRegionCritica.lock(); // entras region critica
+    accesoRegionCritica.lock();
     cantidadHombres--;
     if (cantidadHombres == 0)
     {
         situacionBaño = VACIO;
     }
-    accesoRegionCritica.unlock(); // salis region critica
-    turno.release();              // sale del baño
+    accesoRegionCritica.unlock();
+    turno.release();
     imprimirPantalla.lock();
     cout << nombre + " sale del baño." << endl;
     cout << "-----------------------------------------" << endl;
@@ -155,7 +148,7 @@ int main(int argc, char *argv[])
     }
 
     int cantidadPersonas = stoi(argv[1]);
-    
+
     if (cantidadPersonas < 0)
     {
         cout << "Ingrese cantidad de hombres y mujeres mayor a 0 " << endl;
