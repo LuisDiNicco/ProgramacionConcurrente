@@ -99,7 +99,7 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   - `git pull`
   - `git checkout nombreDeLaRamaEnLaQueEstabasTrabajando`
   - `git merge develop`
-Lo que estarías haciendo es bajarte los nuevos cambios aprobados del/los PR y tambien tenerlos en tu rama local que estás trabajando.
+  Lo que estarías haciendo es bajarte los nuevos cambios aprobados del/los PR y tambien tenerlos en tu rama local que estás trabajando.
 
 - Si querés ver todas las ramas que se encuentran: `git branch -a`
   
