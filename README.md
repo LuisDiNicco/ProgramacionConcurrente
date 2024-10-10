@@ -93,7 +93,11 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
   
 - Antes de hacer un commit es recomendable bajar los cambios que pudieron haberse producido con: `git pull`
-
+  - En caso de que estes trabajando en una rama y en este momento haya ocurrido algun PR en develop tenes que hacer lo siguiente
+  - `git checkout develop`
+  - `git pull`
+  - `git checkout nombreDeLaRamaEnLaQueEstabasTrabajando`
+  - `git merge develop`
 - Si querés ver todas las ramas que se encuentran: `git branch -a`
   
 - Te podés posicionar en una rama con: `git checkout nombreDeLaRama`
