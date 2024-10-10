@@ -53,6 +53,10 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 
 7. El el repositorio de la catedra te va a aparecer un mensaje similar a este, y tenes que hacer clic en `Compare & pull request`
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827" alt="Compare & pull request"/>
+</p>
+
 ![image](https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827)
 
 8. Antes de crearlo, podes asignar los reviewers para que realicen comentarios sobre el codigo del PR
