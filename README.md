@@ -63,6 +63,10 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 
 ![image](https://github.com/user-attachments/assets/4b24cb85-1f92-4169-bfe6-f412ae872203)
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4b24cb85-1f92-4169-bfe6-f412ae872203" alt="Assign reviewers"/>
+</p>
+
 9. Luego creamos el PR con `Create pull request`
 
 ![image](https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd)
