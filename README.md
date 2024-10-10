@@ -69,11 +69,15 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   <img src="https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd" alt="Create pull request"/>
 </p>
 
-10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request` y para finalizar ya poder eliminar la rama con `Delete branch`
+10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request` y para finalizar ya podes eliminar la rama con `Delete branch`
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/24505883/42899819-7c05a47a-8ac7-11e8-8be9-9e3888f1bedc.gif" alt="Merge pull request"/>
 </p>
+
+11. (OPCIONAL) Para finalizar, en la terminal, te podes posicionar nuevamente en la rama de develop, (`git checkout develop`) y bajarte los campios del PR con `git pull`
+
+12. (OPCIONAL) Si hiciste el paso 11 te habras dado cuenta de que la rama que borraste todavia sigue apareciendo, eso es porque se elimino remotamente, pero todavia se encuentra local, la podes ver con `git branch -a` y para eliminarla es con `git branch -d nombreDeLaRama`
 
 ### Aclaraciones:
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
