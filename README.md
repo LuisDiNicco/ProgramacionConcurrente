@@ -75,7 +75,7 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   <img src="https://user-images.githubusercontent.com/24505883/42899819-7c05a47a-8ac7-11e8-8be9-9e3888f1bedc.gif" alt="Merge pull request"/>
 </p>
 
-10.1 En caso de que alguno de los chequeos del Coding Standard no se aprueben, se debe cerrar el PR, realizar los cambios en el codigo de correcciones (repetir los pasos de 4 al 6) y luego reabir el PR.
+10.1 En caso de que alguno de los chequeos del Coding Standard no se aprueben, se debe cerrar el PR, realizar los cambios en el codigo de correcciones, es decir, repetir los pasos de 4 al 6, y luego reabir el PR.
 
 <p align="center">
   <img src="https://i.sstatic.net/IA4pH.png" alt="Close pull request"/>
