@@ -55,13 +55,17 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 
 ![image](https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827)
 
-9. Antes de crearlo, podes asignar los reviewers para que realicen comentarios sobre el codigo del PR
+8. Antes de crearlo, podes asignar los reviewers para que realicen comentarios sobre el codigo del PR
 
-![image](https://github.com/user-attachments/assets/98ead712-ed37-4775-85a1-1314335a8c02)
+![image](https://github.com/user-attachments/assets/4b24cb85-1f92-4169-bfe6-f412ae872203)
 
-8. Luego creamos el PR con `Create pull request`
+9. Luego creamos el PR con `Create pull request`
 
 ![image](https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd)
+
+10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request`
+
+![image](https://i.sstatic.net/RgWvA.png)
 
 ### Aclaraciones:
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
