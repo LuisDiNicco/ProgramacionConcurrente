@@ -57,11 +57,7 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   <img src="https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827" alt="Compare & pull request"/>
 </p>
 
-![image](https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827)
-
 8. Antes de crearlo, podes asignar los reviewers para que realicen comentarios sobre el codigo del PR
-
-![image](https://github.com/user-attachments/assets/4b24cb85-1f92-4169-bfe6-f412ae872203)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4b24cb85-1f92-4169-bfe6-f412ae872203" alt="Assign reviewers"/>
@@ -69,11 +65,15 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 
 9. Luego creamos el PR con `Create pull request`
 
-![image](https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd" alt="Create pull request"/>
+</p>
 
 10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request`
 
-![image](https://i.sstatic.net/RgWvA.png)
+<p align="center">
+  <img src="https://i.sstatic.net/RgWvA.png" alt="Merge pull request"/>
+</p>
 
 ### Aclaraciones:
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
