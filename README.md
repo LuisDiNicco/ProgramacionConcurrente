@@ -69,10 +69,10 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   <img src="https://github.com/user-attachments/assets/ad85a457-6d63-44ce-a4bd-375d89dc42dd" alt="Create pull request"/>
 </p>
 
-10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request`
+10. Despues cuando se verifiquen los chequeos del Coding Standard deberia habilitarse el boton `Merge pull request` y para finalizar ya poder eliminar la rama con `Delete branch`
 
 <p align="center">
-  <img src="https://i.sstatic.net/RgWvA.png" alt="Merge pull request"/>
+  <img src="https://user-images.githubusercontent.com/24505883/42899819-7c05a47a-8ac7-11e8-8be9-9e3888f1bedc.gif" alt="Merge pull request"/>
 </p>
 
 ### Aclaraciones:
