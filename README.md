@@ -75,6 +75,16 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
   <img src="https://user-images.githubusercontent.com/24505883/42899819-7c05a47a-8ac7-11e8-8be9-9e3888f1bedc.gif" alt="Merge pull request"/>
 </p>
 
+10.1 En caso de que alguno de los chequeos del Coding Standard no se aprueben, se debe cerrar el PR, realizar los cambios en el codigo de correcciones (repetir los pasos de 4 al 6) y luego reabir el PR.
+
+<p align="center">
+  <img src="https://i.sstatic.net/IA4pH.png" alt="Close pull request"/>
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35812641/192277071-e822eee6-e340-41a5-aafa-569f441bb65a.png" alt="Reopen pull request"/>
+</p>
+
 11. *(OPCIONAL)* Para finalizar, en la terminal, te podes posicionar nuevamente en la rama de develop, (`git checkout develop`) y bajarte los campios del PR con `git pull`
 
 12. *(OPCIONAL)* Si hiciste el paso 11 te habras dado cuenta de que la rama que borraste todavia sigue apareciendo, eso es porque se elimino remotamente, pero todavia se encuentra local, la podes ver con `git branch -a` y para eliminarla es con `git branch -d nombreDeLaRama`
