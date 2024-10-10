@@ -51,6 +51,11 @@ Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://g
 
 6. Pusheamos la rama: `git push` o `git push --set-upstream origin nombreDeLaRama`
 
+7. El el repositorio de la catedra te va a aparecer un mensaje similar a este, y tenes que hacer clic en `Compare & pull request`
+
+![image](https://github.com/user-attachments/assets/84f13371-6ae0-4407-9df9-843e5f8cd827)
+
+
 ### Aclaraciones:
 - Ante cualquier consulta de commits, cambios efectuados o saber la rama actual, se puede usar: `git status`
   
