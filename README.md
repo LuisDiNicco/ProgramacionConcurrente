@@ -23,17 +23,17 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 ## Links a Google Colab
 ### Trabajo Práctico 1
 * Parte 1: Procesos
-  * [C](https://colab.research.google.com/drive/1HI2BX2UqpVGj9xpQXm2FQORTsDcy4-78?usp=drive_copy)
-  * [Java](https://colab.research.google.com/drive/1133X3S7irJ1Od0Diw2Frh1o-o_lFK1yQ?usp=sharing)
-  * [Python](https://colab.research.google.com/drive/15BYDuVqsOOuq5t5jVRt4znZpDoHhjLmb?usp=sharing)
+  * [C](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Procesos/C/Trabajo_Practico_1_1_Grupo_M4_Procesos_C.ipynb)
+  * [Java](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Procesos/Java/Trabajo_Practico_1_1_Grupo_M4_Procesos_Java.ipynb)
+  * [Python](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Procesos/Python/Trabajo_Practico_1_1_Grupo_M4_Procesos_Python.ipynb)
 * Parte 2: Hilos
   * [C++](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Hilos/C%2B%2B/Trabajo_Practico_1_2_Grupo_M4_Hilos_C%2B%2B.ipynb)
-  * [Java](https://colab.research.google.com/drive/160u8T9y358jp8hcwyKtcP_mnDWh9Jw9U?usp=sharing)
-  * [Python](https://colab.research.google.com/drive/1YPe_jf5sEFWy52j8VbI3utTVnUgqdJF1?usp=sharing)
+  * [Java](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Hilos/Java/Trabajo_Practico_1_2_Grupo_M4_Hilos_Java.ipynb)
+  * [Python](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Hilos/Python/Trabajo_Practico_1_2_Grupo_M4_Hilos_Python.ipynb)
 * Parte 3: Comunicación y Sincronismo
-  * [C++](https://colab.research.google.com/drive/1ja93oFt8rjT-mDRQUiUhEsE4kLBKgPww?usp=sharing)
-  * [Java](https://colab.research.google.com/drive/1faaEzvc6sK45I9DQzRoJa2Sdl5pz8PM6?usp=sharing)
-  * [Python](https://colab.research.google.com/drive/1kNpa11lwbl7ZA-eBlq7JP4FJlv1Xd-yQ?usp=sharing)
+  * [C++](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Comunicacion%20y%20Sincronizacion/C%2B%2B/Trabajo_Practico_1_3_Grupo_M4_Comunicacion_C%2B%2B.ipynb)
+  * [Java](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Comunicacion%20y%20Sincronizacion/Java/Trabajo_Practico_1_3_Grupo_M4_Comunicacion_Java.ipynb)
+  * [Python](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Comunicacion%20y%20Sincronizacion/Python/Trabajo_Practico_1_3_Grupo_M4_Comunicacion_Python.ipynb)
 
 ## Pasos para subir cambios al repositorio de la materia
 
