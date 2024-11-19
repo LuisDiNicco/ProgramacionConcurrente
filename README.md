@@ -27,7 +27,7 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
   * [Java](https://colab.research.google.com/drive/1133X3S7irJ1Od0Diw2Frh1o-o_lFK1yQ?usp=sharing)
   * [Python](https://colab.research.google.com/drive/15BYDuVqsOOuq5t5jVRt4znZpDoHhjLmb?usp=sharing)
 * Parte 2: Hilos
-  * [C++]([https://colab.research.google.com/drive/1NOf-a3MtG6HjaSbdcpi-LiRUN_wtAMBe?usp=sharing](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Hilos/C%2B%2B/Trabajo_Practico_1_2_Grupo_M4_Hilos_C%2B%2B.ipynb))
+  * [C++]([https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Hilos/C%2B%2B/Trabajo_Practico_1_2_Grupo_M4_Hilos_C%2B%2B.ipynb)
   * [Java](https://colab.research.google.com/drive/160u8T9y358jp8hcwyKtcP_mnDWh9Jw9U?usp=sharing)
   * [Python](https://colab.research.google.com/drive/1YPe_jf5sEFWy52j8VbI3utTVnUgqdJF1?usp=sharing)
 * Parte 3: Comunicación y Sincronismo
