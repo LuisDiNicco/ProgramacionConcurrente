@@ -35,6 +35,9 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
   * [Java](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Comunicacion%20y%20Sincronizacion/Java/Trabajo_Practico_1_3_Grupo_M4_Comunicacion_Java.ipynb)
   * [Python](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%201/Comunicacion%20y%20Sincronizacion/Python/Trabajo_Practico_1_3_Grupo_M4_Comunicacion_Python.ipynb)
 
+## Trabajo Práctico Integrador
+  * [Manual de Usuario](https://github.com/leandrojsandoval/ProgramacionConcurrente/blob/main/Trabajo%20Practico%20Integrador/TP1_Integrador_M4.pdf)
+
 ## Pasos para subir cambios al repositorio de la materia
 
 Repositorio de la catedra: [CATEDRA de PROGRAMACION CONCURRENTE UNLAM](https://github.com/UNLAM-PROG-C)
