@@ -1,5 +1,6 @@
 # Programación Concurrente - UNLaM
 Repositorio donde se encuentran los ejercicios correspondientes a los trabajos prácticos de la materia.
+[Repositorio de la Catedra](https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4)
 
 * Cuatrimestre: Segundo Cuatrimestre 2024
 * Grupo: M4
