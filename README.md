@@ -1,5 +1,6 @@
 # Programación Concurrente - UNLaM
 Repositorio donde se encuentran los ejercicios correspondientes a los trabajos prácticos de la materia.
+
 [Repositorio de la Catedra](https://github.com/UNLAM-PROG-C/2024-PROGC-Q2-M4)
 
 * Cuatrimestre: Segundo Cuatrimestre 2024
@@ -18,8 +19,6 @@ Repositorio donde se encuentran los ejercicios correspondientes a los trabajos p
 | Antonioli, Iván Oscar | 43.630.151 |
 | Di Nicco, Luis Demetrio | 43.664.669 |
 | Sandoval Vasquez, Juan Leandro | 41.548.235 |
-| Tigani, Martin Sebastián | 32.788.835 |
-| Villca, Luis Alberto | 35.277.730 |
 
 ## Links a Google Colab
 ### Trabajo Práctico 1
